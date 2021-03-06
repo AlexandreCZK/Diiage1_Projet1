@@ -1,0 +1,90 @@
+﻿<Page
+    x:Class="Diiage2020.CsharpGames.Client.UWP.View.Frame.FormationMainFram"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage2020.CsharpGames.Client.UWP.View.Frame"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:vm="using:Diiage2020.CsharpGames.Client.UWP.ViewModel"
+    Background="Black">
+
+    <Grid  HorizontalAlignment="Center" BorderThickness="2" >
+        <!--Liste-->
+        <ListView x:Name="lstFormaGB"
+                    Width="auto"            
+                  ItemsSource="{x:Bind TrainingGameBoard}"
+                    HorizontalAlignment="Center"
+                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  >
+
+            <!--Mise en page dans la liste-->
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="vm:TrainingVM">
+
+                    <Grid VerticalAlignment="Center" Margin="0 10 0 10" BorderThickness="2" Width="600" >
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--<Button x:Name="btnPopUpProjetGB" Grid.Column="0" Grid.RowSpan="3" Width="150" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnPopUpProjetGB_Click">
+                            <Image Source="/Assets/projet.png" Stretch="UniformToFill"></Image>
+                        </Button>-->
+                        <!--image Row0 -->
+                        <StackPanel x:Name="stckPImgFormaGB" Grid.RowSpan="1">
+                            <Image
+                                Grid.RowSpan="2" 
+                                Source="/Assets/projet.png" 
+                                Width="130"
+                                Height="130" 
+                                x:Name="imgForma"
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center"></Image>
+                        </StackPanel>
+
+                        <!--Titre 1 et 2 a gazuche de limage Row1 -->
+                        <StackPanel Grid.Column="1" Width="auto" VerticalAlignment="Center" HorizontalAlignment="Center"  x:Name="stckPNomBudgetFormaGB">
+                            <TextBlock Grid.Column="1" 
+                                FontSize="30"            
+                                Name="txtNomFormaGB"
+                                TextAlignment="Center">
+                                <Run Text="Duree :"></Run>
+                                <Run Text="{Binding TSDur}"></Run>
+                                <Run Text="Tour(s)"></Run>
+                            </TextBlock>
+                            <TextBlock Grid.Column="1" 
+                                FontSize="30"            
+                                Name="txtNomFormaSchoolGB"
+                                TextAlignment="Center">
+                                <Run Text="Ecole :"></Run>
+                                <Run Text="{Binding School}"></Run>
+                            </TextBlock>
+                        </StackPanel>
+
+                        <!--Row2-->
+                        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Width="200" VerticalAlignment="Center">
+                            <TextBlock x:Name="txtCertifFormaGB" Text="Certification" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top" Margin="0 0 0 20"/>
+                            <ListView 
+                                x:Name="lstCertifFormaGB"
+                                ItemsSource="{x:Bind LstCertif}"
+                                SelectionMode="None"
+                                IsItemClickEnabled="False"
+                                HorizontalAlignment="Center"/>
+                        </StackPanel>
+
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+        </ListView>
+    </Grid>
+</Page>

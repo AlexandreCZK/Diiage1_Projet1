@@ -1,0 +1,128 @@
+﻿<Page
+    x:Class="Diiage2020.CsharpGames.Client.UWP.View.CompanyInformationsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage2020.CsharpGames.Client.UWP.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:vm="using:Diiage2020.CsharpGames.Client.UWP.ViewModel"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.DataContext>
+        <vm:CompanyVM x:Name="viewModel"></vm:CompanyVM>
+    </Page.DataContext>
+
+    <Grid x:Name="gridCompany">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="txtCompany"  Text="{x:Bind CompanyN.NameCompany}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="48"></TextBlock>
+
+        <!--Grid de gauche-->
+        <Grid x:Name="gridDeveloper" Grid.Row="1" Grid.Column="0" Margin="50,0,50,0" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="txtDeveloperTitle" Text="Developpeurs :" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <ListView x:Name="listViewDeveloper" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="White" ItemsSource="Certification" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+          ScrollViewer.HorizontalScrollMode="Enabled"
+          ScrollViewer.VerticalScrollMode="Disabled">
+                <!--<Image Source="/Assets/user1.png" Height="100" Width="100" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></Image>-->
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel x:Name="stackPanelDeveloper" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock x:Name="txtDeveloperTest" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Field.Title}" FontSize="28"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+            <!--Grid indenté-->
+            <Grid x:Name="gridDeveloperInside" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="50,50,50,50" BorderBrush="Black" BorderThickness="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="txtDeveloperSelect" Grid.Row="1" Grid.Column="0" Text="Developpeur X - Niveau" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28"></TextBlock>
+                <TextBlock x:Name="txtActivityTitle" Grid.Row="2" Grid.Column="0" Text="Activité :" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28"></TextBlock>
+                <TextBlock x:Name="txtActivity" Grid.Row="3" Grid.Column="0" Text="En formation / En projet" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28"></TextBlock>
+            </Grid>
+        </Grid>
+
+        <!--Grid de droite-->
+        <Grid x:Name="gridProject" Grid.Row="1" Grid.Column="1" Margin="50,0,50,0" BorderBrush="Black" BorderThickness="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="txtProjectTitle" Text="Projets :" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <ListView x:Name="listViewProject" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="White" ItemsSource="Projets" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+          ScrollViewer.HorizontalScrollMode="Enabled"
+          ScrollViewer.VerticalScrollMode="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel x:Name="stackPanelProject" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListViewItem>
+                            <TextBlock x:Name="txtProjectTest" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Title}" FontSize="28"></TextBlock>
+                        </ListViewItem>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<Image Source="/Assets/user1.png" Height="100" Width="100" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></Image>-->
+            <Grid x:Name="gridProjectInside" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="50,50,50,50" BorderBrush="Black" BorderThickness="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition Height="4*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="txtProject" Grid.Row="0" Grid.Column="0" Text="Projet X:" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28"></TextBlock>
+                <TextBlock x:Name="txtInformationProjectTitle" Grid.Row="1" Grid.Column="0" Text=" Détails du projet :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="28"></TextBlock>
+                <ScrollViewer x:Name="scrollViewerInformationProject" Grid.Row="2" Grid.Column="0">
+                    <TextBlock x:Name="txtInformationProject" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,10,15,0" 
+                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. PrLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue." HorizontalTextAlignment="Center" TextAlignment="Justify"/>
+                </ScrollViewer>
+                <TextBlock x:Name="txtDeveloperInformationTitle" Grid.Row="3" Grid.Column="0" Text=" Développeurs Affectés :" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="28"></TextBlock>
+                <ScrollViewer x:Name="scrollViewerDeveloperInformation" Grid.Row="4" Grid.Column="0" Margin="0,0,0,5">
+                    <TextBlock x:Name="txtDeveloperInformation" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,10,15,0" 
+                           Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. PrLorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue." HorizontalTextAlignment="Center" TextAlignment="Justify"/>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+        <Button x:Name="btnReturn" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Content="Retour" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Click="btnReturn_Click"></Button>
+    </Grid>
+</Page>

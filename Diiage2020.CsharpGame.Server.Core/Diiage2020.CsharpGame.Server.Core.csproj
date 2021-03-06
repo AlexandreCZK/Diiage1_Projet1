@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diiage2020.CsharpGame.Entities\Diiage2020.CsharpGame.Entities.csproj" />
+    <ProjectReference Include="..\Diiage2020.CSharpGame.Server.Services\Diiage2020.CSharpGame.Server.Services.csproj" />
+    <ProjectReference Include="..\SerializeJson\SerializeJson.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Diiage2020.CSharpGame.Client.Entities\Diiage2020.CSharpGame.Client.Entities.csproj" />
+    <ProjectReference Include="..\Diiage2020.CsharpGame.Entities\Diiage2020.CsharpGame.Entities.csproj" />
+    <ProjectReference Include="..\SerializeJson\SerializeJson.csproj" />
+  </ItemGroup>
+
+</Project>

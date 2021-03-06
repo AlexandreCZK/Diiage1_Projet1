@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="Diiage2020.CsharpGames.Client.UWP.View.LoginView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Diiage2020.CsharpGames.Client.UWP.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name="txtChampIdentification" Text="Identifiez-vous" Grid.Column="1" HorizontalAlignment="center" FontSize="48" VerticalAlignment="Center"></TextBlock>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Name="txtChampNom" Text="Nom :" Grid.Column="1" FontSize="35" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="txtSaisieN" Height="33" Grid.Column="1" HorizontalAlignment="Stretch"></TextBox>
+            <TextBlock x:Name="txtChampPrenom" Text="Prénom :" Grid.Column="1" Grid.Row="1" FontSize="35" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="txtSaisieP" Height="33" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch"></TextBox>
+            <TextBlock x:Name="txtChampPseudo" Text="Pseudo :" Grid.Column="1" Grid.Row="2" FontSize="35" HorizontalAlignment="Center"></TextBlock>
+            <TextBox x:Name="txtSaisiePseu" Height="33" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch"></TextBox>
+        </Grid>
+        <CheckBox x:Name="cbAdmin" Content="êtes-vous admin de la partie ?" FontSize="35" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center"></CheckBox>
+        <Button x:Name="btnValider" Content="Valider" FontSize="35" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" Margin="12,0,-12,0" Click="btnValider_Click"></Button>
+    </Grid>
+</Page>

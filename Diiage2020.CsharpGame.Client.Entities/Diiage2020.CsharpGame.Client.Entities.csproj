@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Class1.cs~RFe5faf44.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diiage2020.CsharpGame.Entities\Diiage2020.CsharpGame.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

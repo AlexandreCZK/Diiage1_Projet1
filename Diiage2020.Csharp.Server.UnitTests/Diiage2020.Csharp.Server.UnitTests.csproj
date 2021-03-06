@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.1.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.1.0" />
+    <PackageReference Include="coverlet.collector" Version="1.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Diiage2020.CsharpGame.Client.Services\Diiage2020.CsharpGame.Client.Services.csproj" />
+    <ProjectReference Include="..\Diiage2020.CsharpGame.Entities\Diiage2020.CsharpGame.Entities.csproj" />
+    <ProjectReference Include="..\Diiage2020.CsharpGame.Server.Core\Diiage2020.CsharpGame.Server.Core.csproj" />
+    <ProjectReference Include="..\SerializeJson\SerializeJson.csproj" />
+  </ItemGroup>
+
+</Project>
